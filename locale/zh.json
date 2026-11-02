@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Coredump 解析",
+    "description": "通过 SSH 在远端 Linux 设备上找 core、看崩溃栈、深挖单帧。"
+  }
+}

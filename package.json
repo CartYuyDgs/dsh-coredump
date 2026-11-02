@@ -1,0 +1,70 @@
+{
+  "name": "dsh-coredump",
+  "version": "0.3.0",
+  "description": "DSH 插件：通过 SSH（支持多跳）在远端 Linux 设备上排查 ELF coredump —— 找 core、出崩溃栈、深挖单帧；带 Web GUI 面板和三个 Agent 工具。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "coredump",
+    "core-dump",
+    "gdb",
+    "backtrace",
+    "ssh"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "icon": "icon.svg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CartYuyDgs/dsh-coredump.git"
+  },
+  "homepage": "https://github.com/CartYuyDgs/dsh-coredump#readme",
+  "bugs": {
+    "url": "https://github.com/CartYuyDgs/dsh-coredump/issues"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.1-rc.2"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ]
+    }
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "scripts": {
+    "test": "node --test-isolation=none --test test/report.test.js test/ssh.test.js test/tools.test.js test/client.test.js",
+    "test:engine": "python test/test_engine.py",
+    "prepublishOnly": "node --check client.js && node --test-isolation=none --test test/report.test.js test/ssh.test.js test/tools.test.js test/client.test.js"
+  },
+  "files": [
+    "lib",
+    "engine/cdparse.py",
+    "client.js",
+    "locale/*.json",
+    "icon.svg",
+    "LICENSE",
+    "CHANGELOG.md",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "license": "Apache-2.0"
+}

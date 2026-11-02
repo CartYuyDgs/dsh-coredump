@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Coredump Inspector",
+    "description": "Find cores, read crash stacks and inspect single frames on remote Linux hosts over SSH."
+  }
+}

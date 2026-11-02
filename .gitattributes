@@ -1,0 +1,7 @@
+# Keep the repository text-only and LF so the Python engine and YAML behave the
+# same on Linux CI and on Windows checkouts.
+* text=auto eol=lf
+
+*.ps1 text eol=crlf
+*.png binary
+*.ico binary

@@ -1,0 +1,17 @@
+# Distribution artifact produced by `npm pack`; regenerate instead of committing.
+dist/
+*.tgz
+
+# Python bytecode from local test runs.
+__pycache__/
+*.py[cod]
+
+# Node tooling (this package has no runtime dependencies).
+node_modules/
+
+# Editor / OS noise.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

@@ -1,0 +1,9 @@
+# dsh-coredump bundle patch: inserts the plugin row into the profile roster.
+# Install it with the plugin manager (it also adds the package to
+# dsh.profile.bundles and links/installs the dependency):
+#   plugin_manager install_bundle  target: dsh-coredump            # published package
+#   plugin_manager install_bundle  target: <dir or .tgz path>      # local package
+# The row name must stay identical to package.json "name".
+- insert:
+    - id: coredump
+      name: dsh-coredump
